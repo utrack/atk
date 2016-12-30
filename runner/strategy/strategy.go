@@ -1,6 +1,8 @@
 package strategy
 
-import "time"
+import (
+	"time"
+)
 
 // RequestEnqueuer is a chan that signals when a request should be sent to the
 // worker pool.

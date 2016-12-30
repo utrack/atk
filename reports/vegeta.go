@@ -24,6 +24,17 @@ func NewVegetaOutput(out io.Writer) *VegetaReporter {
 	}
 }
 
+func ReportFromChan(rep Reporter, resultCount uint64, ch <-chan runner.Result) {
+	results := uint64(0)
+	for res := range ch {
+		rep.Output(res)
+		results++
+		if results == resultCount {
+			return
+		}
+	}
+}
+
 func (o *VegetaReporter) Output(r runner.Result) {
 	res := &vegeta.Result{
 		Code:      uint16(r.Code),

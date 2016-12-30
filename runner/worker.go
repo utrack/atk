@@ -1,6 +1,8 @@
 package runner
 
-import "time"
+import (
+	"time"
+)
 
 type Worker struct {
 	reqChan <-chan struct{}
