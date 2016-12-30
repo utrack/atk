@@ -40,6 +40,7 @@ func (w *Worker) runProc() {
 			Err:     err,
 			Code:    code,
 			Elapsed: time.Since(started),
+			At:      started,
 		}
 	}
 }
